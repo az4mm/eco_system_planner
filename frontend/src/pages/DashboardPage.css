@@ -1,0 +1,109 @@
+.dashboard-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.budget-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: 3px;
+  outline: none;
+}
+.budget-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+}
+
+.budget-range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.budget-input {
+  width: 140px;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radius-xl);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-glass);
+  transition: var(--transition);
+}
+
+.chip:hover {
+  border-color: var(--accent-blue);
+  color: var(--text-primary);
+}
+
+.chip-active {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.generate-btn {
+  align-self: center;
+  min-width: 260px;
+}
+
+.results-section {
+  margin-top: 16px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.bundles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .bundles-grid { grid-template-columns: 1fr; }
+  .chip { padding: 8px 14px; font-size: 0.85rem; }
+}

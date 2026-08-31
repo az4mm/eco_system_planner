@@ -1,0 +1,46 @@
+.empty-state {
+  text-align: center;
+  padding: 60px 32px;
+  max-width: 440px;
+  margin: 40px auto;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.saved-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.saved-item {
+  position: relative;
+}
+
+.remove-btn {
+  width: 100%;
+  margin-top: 8px;
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+.remove-btn:hover {
+  background: var(--accent-red);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .saved-grid { grid-template-columns: 1fr; }
+}

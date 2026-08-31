@@ -1,0 +1,138 @@
+.bundle-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--gradient-card);
+  border: 1px solid var(--border-glass);
+}
+
+.bundle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bundle-rank {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.rank-badge {
+  font-size: 1.3rem;
+}
+
+.score-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.score-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s ease-out;
+}
+
+.score-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 30px;
+  text-align: right;
+}
+
+.bundle-products {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.product-row:last-child {
+  border-bottom: none;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.product-category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.product-price {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.bundle-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-glass);
+}
+
+.bundle-total {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bundle-total span:first-child {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bundle-actions {
+  display: flex;
+  gap: 8px;
+}
