@@ -64,6 +64,15 @@ export default function LoginPage() {
         <p className="auth-footer">
           Don't have an account? <Link to="/register">Sign up</Link>
         </p>
+        <div className="auth-divider"><span>or</span></div>
+        <Link to="/admin" className="btn btn-sm btn-secondary" style={{ width: '100%', textAlign: 'center' }}>
+          🔒 Login as Administrator
+        </Link>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <Link to="/" className="btn btn-sm btn-secondary">
+            &larr; Back to Home
+          </Link>
+        </div>
       </div>
     </div>
   );

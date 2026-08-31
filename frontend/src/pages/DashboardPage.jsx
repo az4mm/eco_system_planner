@@ -4,7 +4,7 @@ import { bundleService } from '../services/bundleService';
 import BundleCard from '../components/BundleCard';
 import CompareModal from '../components/CompareModal';
 import toast from 'react-hot-toast';
-import { HiOutlineLightningBolt } from 'react-icons/hi';
+import { HiOutlineLightningBolt, HiOutlineRefresh } from 'react-icons/hi';
 import './DashboardPage.css';
 
 const ECOSYSTEMS = ['Apple', 'Android', 'Windows', 'Linux', 'Mixed'];
@@ -41,6 +41,15 @@ export default function DashboardPage() {
   useEffect(() => {
     saveState({ budget, ecosystem, usageProfile, bundles, compareList });
   }, [budget, ecosystem, usageProfile, bundles, compareList]);
+
+  const handleReset = () => {
+    setBudget(25000);
+    setEcosystem('');
+    setUsageProfile('');
+    setBundles([]);
+    setCompareList([]);
+    sessionStorage.removeItem(STORAGE_KEY);
+  };
 
   const handleGenerate = async () => {
     if (!ecosystem) { toast.error('Please select an ecosystem'); return; }
@@ -80,6 +89,16 @@ export default function DashboardPage() {
   const goToCompare = () => {
     if (compareList.length < 2) { toast.error('Select at least 2 bundles'); return; }
     setShowCompare(true);
+  };
+
+  const handleExport = async (bundleId) => {
+    try {
+      toast.loading('Generating PDF...', { id: 'pdf' });
+      await bundleService.exportBundle(bundleId);
+      toast.success('PDF downloaded!', { id: 'pdf' });
+    } catch (err) {
+      toast.error('Failed to export PDF', { id: 'pdf' });
+    }
   };
 
   const formatBudget = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
@@ -125,10 +144,15 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <button onClick={handleGenerate} className="btn btn-primary btn-lg generate-btn" disabled={loading}>
-            <HiOutlineLightningBolt />
-            {loading ? 'Generating...' : 'Generate Bundles'}
-          </button>
+          <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+            <button onClick={handleReset} className="btn btn-secondary btn-lg" disabled={loading} style={{ flex: 1 }}>
+              <HiOutlineRefresh /> Reset
+            </button>
+            <button onClick={handleGenerate} className="btn btn-primary btn-lg generate-btn" disabled={loading} style={{ flex: 2, margin: 0 }}>
+              <HiOutlineLightningBolt />
+              {loading ? 'Generating...' : 'Generate Bundles'}
+            </button>
+          </div>
         </div>
 
         {bundles.length > 0 && (
@@ -143,7 +167,7 @@ export default function DashboardPage() {
             </div>
             <div className="bundles-grid">
               {bundles.map((bundle, i) => (
-                <BundleCard key={bundle.id} bundle={bundle} rank={i + 1} onSave={handleSave} onCompare={handleCompare} isComparing={compareList.includes(bundle.id)} />
+                <BundleCard key={bundle.id} bundle={bundle} rank={i + 1} onSave={handleSave} onCompare={handleCompare} onExport={handleExport} isComparing={compareList.includes(bundle.id)} />
               ))}
             </div>
           </div>

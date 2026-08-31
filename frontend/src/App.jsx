@@ -9,6 +9,8 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import ComparePage from './pages/ComparePage';
 import SavedPage from './pages/SavedPage';
+import ProductsPage from './pages/ProductsPage';
+import AdminPage from './pages/AdminPage';
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, loading } = useAuth();
@@ -33,6 +35,8 @@ function AppRoutes() {
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
         <Route path="/compare" element={<ProtectedRoute><ComparePage /></ProtectedRoute>} />
         <Route path="/saved" element={<ProtectedRoute><SavedPage /></ProtectedRoute>} />
+        <Route path="/products" element={<ProtectedRoute><ProductsPage /></ProtectedRoute>} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

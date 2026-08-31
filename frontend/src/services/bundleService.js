@@ -37,4 +37,19 @@ export const bundleService = {
     const response = await api.delete(`/api/v1/bundles/saved/${savedId}`);
     return response.data;
   },
+
+  async exportBundle(bundleId) {
+    const response = await api.get(`/api/v1/bundles/${bundleId}/export`, {
+      responseType: 'blob',
+    });
+    // Trigger browser download
+    const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `TechPlanner_Bundle_${bundleId}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  },
 };

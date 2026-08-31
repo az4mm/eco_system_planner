@@ -2,7 +2,7 @@
 import { HiOutlineStar, HiOutlineBookmark, HiOutlineScale, HiOutlineDownload } from 'react-icons/hi';
 import './BundleCard.css';
 
-export default function BundleCard({ bundle, rank, onSave, onCompare, isComparing = false }) {
+export default function BundleCard({ bundle, rank, onSave, onCompare, onExport, isComparing = false }) {
   const getScoreClass = (score) => {
     if (score >= 80) return 'score-high';
     if (score >= 60) return 'score-medium';
@@ -75,6 +75,11 @@ export default function BundleCard({ bundle, rank, onSave, onCompare, isComparin
           {onSave && (
             <button onClick={() => onSave(bundle.id)} className="btn btn-sm btn-secondary" title="Save">
               <HiOutlineBookmark />
+            </button>
+          )}
+          {onExport && (
+            <button onClick={() => onExport(bundle.id)} className="btn btn-sm btn-secondary" title="Export PDF">
+              <HiOutlineDownload />
             </button>
           )}
         </div>
