@@ -1,0 +1,776 @@
+[
+  {
+    "category": "Laptop",
+    "brand": "Dell",
+    "model": "Inspiron 15 3520",
+    "price": 35990,
+    "rating": 4.1,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "Intel i5-1235U", "storage": "512GB SSD", "display": "15.6\" FHD", "battery": "41Wh"},
+    "image_url": "https://logo.clearbit.com/dell.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "HP",
+    "model": "Pavilion 15-eg3000",
+    "price": 52990,
+    "rating": 4.3,
+    "ecosystem": "Windows",
+    "specs": {"ram": "16GB", "processor": "Intel i5-1340P", "storage": "512GB SSD", "display": "15.6\" FHD IPS", "battery": "51Wh"},
+    "image_url": "https://logo.clearbit.com/hp.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Lenovo",
+    "model": "IdeaPad Slim 3",
+    "price": 32990,
+    "rating": 4.0,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "AMD Ryzen 5 7530U", "storage": "512GB SSD", "display": "15.6\" FHD", "battery": "47Wh"},
+    "image_url": "https://logo.clearbit.com/lenovo.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "ASUS",
+    "model": "VivoBook 15 OLED",
+    "price": 56990,
+    "rating": 4.4,
+    "ecosystem": "Windows",
+    "specs": {"ram": "16GB", "processor": "Intel i5-1335U", "storage": "512GB SSD", "display": "15.6\" OLED FHD", "battery": "50Wh"},
+    "image_url": "https://logo.clearbit.com/asus.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Acer",
+    "model": "Aspire 5 A515-58M",
+    "price": 42990,
+    "rating": 4.1,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "Intel i5-1335U", "storage": "512GB SSD", "display": "15.6\" FHD IPS", "battery": "50Wh"},
+    "image_url": "https://logo.clearbit.com/acer.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Apple",
+    "model": "MacBook Air M2",
+    "price": 99900,
+    "rating": 4.8,
+    "ecosystem": "Apple",
+    "specs": {"ram": "8GB", "processor": "Apple M2", "storage": "256GB SSD", "display": "13.6\" Liquid Retina", "battery": "52.6Wh"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Apple",
+    "model": "MacBook Air M3",
+    "price": 114900,
+    "rating": 4.9,
+    "ecosystem": "Apple",
+    "specs": {"ram": "8GB", "processor": "Apple M3", "storage": "256GB SSD", "display": "13.6\" Liquid Retina", "battery": "52.6Wh"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "HP",
+    "model": "Victus 15 Gaming",
+    "price": 62990,
+    "rating": 4.2,
+    "ecosystem": "Windows",
+    "specs": {"ram": "16GB", "processor": "AMD Ryzen 5 7535HS", "storage": "512GB SSD", "display": "15.6\" FHD 144Hz", "gpu": "NVIDIA RTX 2050", "battery": "70Wh"},
+    "image_url": "https://logo.clearbit.com/hp.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "ASUS",
+    "model": "TUF Gaming F15",
+    "price": 74990,
+    "rating": 4.3,
+    "ecosystem": "Windows",
+    "specs": {"ram": "16GB", "processor": "Intel i5-12500H", "storage": "512GB SSD", "display": "15.6\" FHD 144Hz", "gpu": "NVIDIA RTX 4050", "battery": "90Wh"},
+    "image_url": "https://logo.clearbit.com/asus.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Lenovo",
+    "model": "IdeaPad Gaming 3",
+    "price": 58990,
+    "rating": 4.2,
+    "ecosystem": "Windows",
+    "specs": {"ram": "16GB", "processor": "AMD Ryzen 5 6600H", "storage": "512GB SSD", "display": "15.6\" FHD 120Hz", "gpu": "NVIDIA RTX 3050", "battery": "60Wh"},
+    "image_url": "https://logo.clearbit.com/lenovo.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Dell",
+    "model": "Latitude 3440",
+    "price": 48990,
+    "rating": 4.0,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "Intel i5-1335U", "storage": "256GB SSD", "display": "14\" FHD", "battery": "54Wh"},
+    "image_url": "https://logo.clearbit.com/dell.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Acer",
+    "model": "Nitro V 15",
+    "price": 69990,
+    "rating": 4.3,
+    "ecosystem": "Windows",
+    "specs": {"ram": "16GB", "processor": "Intel i5-13420H", "storage": "512GB SSD", "display": "15.6\" FHD 144Hz", "gpu": "NVIDIA RTX 4050", "battery": "57Wh"},
+    "image_url": "https://logo.clearbit.com/acer.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "MSI",
+    "model": "Thin GF63",
+    "price": 54990,
+    "rating": 4.1,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "Intel i5-12450H", "storage": "512GB SSD", "display": "15.6\" FHD 144Hz", "gpu": "NVIDIA RTX 2050", "battery": "52Wh"},
+    "image_url": "https://logo.clearbit.com/msi.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Lenovo",
+    "model": "ThinkPad E14 Gen 5",
+    "price": 62990,
+    "rating": 4.5,
+    "ecosystem": "Windows",
+    "specs": {"ram": "16GB", "processor": "Intel i5-1335U", "storage": "512GB SSD", "display": "14\" FHD IPS", "battery": "57Wh"},
+    "image_url": "https://logo.clearbit.com/lenovo.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "HP",
+    "model": "15s-fq5000",
+    "price": 38990,
+    "rating": 4.0,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "Intel i3-1215U", "storage": "512GB SSD", "display": "15.6\" FHD", "battery": "41Wh"},
+    "image_url": "https://logo.clearbit.com/hp.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Dell",
+    "model": "Vostro 3420",
+    "price": 28990,
+    "rating": 3.9,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "Intel i3-1215U", "storage": "256GB SSD", "display": "14\" FHD", "battery": "41Wh"},
+    "image_url": "https://logo.clearbit.com/dell.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Lenovo",
+    "model": "V15 G4 AMN",
+    "price": 25990,
+    "rating": 3.8,
+    "ecosystem": "Windows",
+    "specs": {"ram": "8GB", "processor": "AMD Ryzen 3 7320U", "storage": "256GB SSD", "display": "15.6\" FHD", "battery": "38Wh"},
+    "image_url": "https://logo.clearbit.com/lenovo.com"
+  },
+  {
+    "category": "Laptop",
+    "brand": "Apple",
+    "model": "MacBook Pro 14 M3",
+    "price": 174900,
+    "rating": 4.9,
+    "ecosystem": "Apple",
+    "specs": {"ram": "18GB", "processor": "Apple M3 Pro", "storage": "512GB SSD", "display": "14.2\" Liquid Retina XDR", "battery": "72.4Wh"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+
+  {
+    "category": "Smartphone",
+    "brand": "Samsung",
+    "model": "Galaxy S24",
+    "price": 64999,
+    "rating": 4.5,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Exynos 2400", "storage": "128GB", "display": "6.2\" AMOLED 120Hz", "camera": "50MP+12MP+10MP", "battery": "4000mAh"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Samsung",
+    "model": "Galaxy A55",
+    "price": 28999,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Exynos 1480", "storage": "128GB", "display": "6.6\" AMOLED 120Hz", "camera": "50MP+12MP+5MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Samsung",
+    "model": "Galaxy M34 5G",
+    "price": 14999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"ram": "6GB", "processor": "Exynos 1280", "storage": "128GB", "display": "6.5\" AMOLED 120Hz", "camera": "50MP+8MP+2MP", "battery": "6000mAh"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "price": 69900,
+    "rating": 4.7,
+    "ecosystem": "Apple",
+    "specs": {"ram": "6GB", "processor": "A16 Bionic", "storage": "128GB", "display": "6.1\" OLED", "camera": "48MP+12MP", "battery": "3877mAh"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro",
+    "price": 129900,
+    "rating": 4.8,
+    "ecosystem": "Apple",
+    "specs": {"ram": "8GB", "processor": "A17 Pro", "storage": "128GB", "display": "6.1\" OLED 120Hz", "camera": "48MP+12MP+12MP", "battery": "3274mAh"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Apple",
+    "model": "iPhone SE (3rd Gen)",
+    "price": 39900,
+    "rating": 4.2,
+    "ecosystem": "Apple",
+    "specs": {"ram": "4GB", "processor": "A15 Bionic", "storage": "64GB", "display": "4.7\" Retina", "camera": "12MP", "battery": "2018mAh"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "OnePlus",
+    "model": "12",
+    "price": 59999,
+    "rating": 4.5,
+    "ecosystem": "Android",
+    "specs": {"ram": "12GB", "processor": "Snapdragon 8 Gen 3", "storage": "256GB", "display": "6.82\" AMOLED 120Hz", "camera": "50MP+48MP+64MP", "battery": "5400mAh"},
+    "image_url": "https://logo.clearbit.com/oneplus.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "OnePlus",
+    "model": "Nord CE 4",
+    "price": 22999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Snapdragon 7 Gen 3", "storage": "128GB", "display": "6.7\" AMOLED 120Hz", "camera": "50MP+8MP", "battery": "5500mAh"},
+    "image_url": "https://logo.clearbit.com/oneplus.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Google",
+    "model": "Pixel 8",
+    "price": 52999,
+    "rating": 4.4,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Tensor G3", "storage": "128GB", "display": "6.2\" OLED 120Hz", "camera": "50MP+12MP", "battery": "4575mAh"},
+    "image_url": "https://logo.clearbit.com/google.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Google",
+    "model": "Pixel 8a",
+    "price": 38999,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Tensor G3", "storage": "128GB", "display": "6.1\" OLED 120Hz", "camera": "64MP+13MP", "battery": "4492mAh"},
+    "image_url": "https://logo.clearbit.com/google.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13 Pro+",
+    "price": 26999,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "MediaTek Dimensity 7200", "storage": "256GB", "display": "6.67\" AMOLED 120Hz", "camera": "200MP+8MP+2MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/xiaomi.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13",
+    "price": 13999,
+    "rating": 4.1,
+    "ecosystem": "Android",
+    "specs": {"ram": "6GB", "processor": "Snapdragon 685", "storage": "128GB", "display": "6.67\" AMOLED 120Hz", "camera": "108MP+8MP+2MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/xiaomi.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Xiaomi",
+    "model": "Redmi 13C",
+    "price": 8499,
+    "rating": 3.9,
+    "ecosystem": "Android",
+    "specs": {"ram": "4GB", "processor": "MediaTek Helio G85", "storage": "128GB", "display": "6.74\" HD+", "camera": "50MP+2MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/xiaomi.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Vivo",
+    "model": "V30",
+    "price": 33999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Snapdragon 7 Gen 3", "storage": "128GB", "display": "6.78\" AMOLED 120Hz", "camera": "50MP+50MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/vivo.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Realme",
+    "model": "GT 6T",
+    "price": 25999,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Snapdragon 7+ Gen 3", "storage": "128GB", "display": "6.78\" AMOLED 120Hz", "camera": "50MP+8MP", "battery": "5500mAh"},
+    "image_url": "https://logo.clearbit.com/realme.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Motorola",
+    "model": "Edge 50 Pro",
+    "price": 29999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "Snapdragon 7 Gen 3", "storage": "256GB", "display": "6.7\" pOLED 144Hz", "camera": "50MP+13MP+10MP", "battery": "4500mAh"},
+    "image_url": "https://logo.clearbit.com/motorola.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "Nothing",
+    "model": "Phone (2a)",
+    "price": 19999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "MediaTek Dimensity 7200 Pro", "storage": "128GB", "display": "6.7\" AMOLED 120Hz", "camera": "50MP+50MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/nothing.tech"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "iQOO",
+    "model": "Z9 Turbo",
+    "price": 17999,
+    "rating": 4.1,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "MediaTek Dimensity 7300", "storage": "128GB", "display": "6.78\" AMOLED 120Hz", "camera": "50MP+2MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/iqoo.com"
+  },
+  {
+    "category": "Smartphone",
+    "brand": "POCO",
+    "model": "X6 Pro",
+    "price": 22999,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"ram": "8GB", "processor": "MediaTek Dimensity 8300 Ultra", "storage": "256GB", "display": "6.67\" AMOLED 120Hz", "camera": "64MP+8MP+2MP", "battery": "5000mAh"},
+    "image_url": "https://logo.clearbit.com/poco.net"
+  },
+
+  {
+    "category": "Earbuds",
+    "brand": "Apple",
+    "model": "AirPods Pro (2nd Gen)",
+    "price": 20900,
+    "rating": 4.7,
+    "ecosystem": "Apple",
+    "specs": {"driver": "Custom Apple", "anc": true, "battery": "6h (30h with case)", "codec": "AAC", "water_resistance": "IPX4"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Apple",
+    "model": "AirPods (3rd Gen)",
+    "price": 15900,
+    "rating": 4.4,
+    "ecosystem": "Apple",
+    "specs": {"driver": "Custom Apple", "anc": false, "battery": "6h (30h with case)", "codec": "AAC", "water_resistance": "IPX4"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Samsung",
+    "model": "Galaxy Buds FE",
+    "price": 4999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"driver": "12mm", "anc": true, "battery": "6h (21h with case)", "codec": "AAC, SBC", "water_resistance": "IPX2"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Samsung",
+    "model": "Galaxy Buds2 Pro",
+    "price": 11999,
+    "rating": 4.4,
+    "ecosystem": "Android",
+    "specs": {"driver": "11mm + 6.5mm", "anc": true, "battery": "5h (18h with case)", "codec": "AAC, SBC, Samsung Codec", "water_resistance": "IPX7"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Sony",
+    "model": "WF-1000XM5",
+    "price": 19990,
+    "rating": 4.7,
+    "ecosystem": "Universal",
+    "specs": {"driver": "8.4mm", "anc": true, "battery": "8h (24h with case)", "codec": "LDAC, AAC, SBC", "water_resistance": "IPX4"},
+    "image_url": "https://logo.clearbit.com/sony.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "OnePlus",
+    "model": "Buds 3",
+    "price": 4999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"driver": "10.4mm", "anc": true, "battery": "7h (37h with case)", "codec": "AAC, SBC, LHDC", "water_resistance": "IP55"},
+    "image_url": "https://logo.clearbit.com/oneplus.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "boAt",
+    "model": "Airdopes 141",
+    "price": 999,
+    "rating": 3.9,
+    "ecosystem": "Universal",
+    "specs": {"driver": "8mm", "anc": false, "battery": "8h (42h with case)", "codec": "AAC, SBC", "water_resistance": "IPX4"},
+    "image_url": "https://logo.clearbit.com/boat-lifestyle.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "boAt",
+    "model": "Airdopes 500 ANC",
+    "price": 2999,
+    "rating": 4.0,
+    "ecosystem": "Universal",
+    "specs": {"driver": "10mm", "anc": true, "battery": "8h (28h with case)", "codec": "AAC, SBC", "water_resistance": "IPX5"},
+    "image_url": "https://logo.clearbit.com/boat-lifestyle.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "JBL",
+    "model": "Tune 230NC",
+    "price": 3999,
+    "rating": 4.2,
+    "ecosystem": "Universal",
+    "specs": {"driver": "10mm", "anc": true, "battery": "8h (32h with case)", "codec": "AAC, SBC", "water_resistance": "IPX4"},
+    "image_url": "https://logo.clearbit.com/jbl.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Nothing",
+    "model": "Ear (2)",
+    "price": 7999,
+    "rating": 4.3,
+    "ecosystem": "Universal",
+    "specs": {"driver": "11.6mm", "anc": true, "battery": "6.3h (36h with case)", "codec": "LHDC, AAC, SBC", "water_resistance": "IP54"},
+    "image_url": "https://logo.clearbit.com/nothing.tech"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Noise",
+    "model": "Buds VS104",
+    "price": 799,
+    "rating": 3.8,
+    "ecosystem": "Universal",
+    "specs": {"driver": "13mm", "anc": false, "battery": "7h (35h with case)", "codec": "SBC", "water_resistance": "IPX5"},
+    "image_url": "https://logo.clearbit.com/gonoise.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Google",
+    "model": "Pixel Buds Pro",
+    "price": 14990,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"driver": "11mm", "anc": true, "battery": "7h (20h with case)", "codec": "AAC, SBC", "water_resistance": "IPX4"},
+    "image_url": "https://logo.clearbit.com/google.com"
+  },
+  {
+    "category": "Earbuds",
+    "brand": "Realme",
+    "model": "Buds T300",
+    "price": 1999,
+    "rating": 4.1,
+    "ecosystem": "Universal",
+    "specs": {"driver": "12.4mm", "anc": true, "battery": "7h (30h with case)", "codec": "AAC, SBC", "water_resistance": "IP55"},
+    "image_url": "https://logo.clearbit.com/realme.com"
+  },
+
+  {
+    "category": "Smartwatch",
+    "brand": "Apple",
+    "model": "Watch SE (2nd Gen)",
+    "price": 27900,
+    "rating": 4.6,
+    "ecosystem": "Apple",
+    "specs": {"display": "1.78\" OLED", "battery": "18h", "sensors": "Heart Rate, Accelerometer, Gyroscope", "gps": true, "water_resistance": "50m"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Apple",
+    "model": "Watch Series 9",
+    "price": 41900,
+    "rating": 4.8,
+    "ecosystem": "Apple",
+    "specs": {"display": "1.9\" OLED Always-On", "battery": "18h", "sensors": "Heart Rate, SpO2, ECG, Temperature", "gps": true, "water_resistance": "50m"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Samsung",
+    "model": "Galaxy Watch 6",
+    "price": 22999,
+    "rating": 4.4,
+    "ecosystem": "Android",
+    "specs": {"display": "1.5\" AMOLED", "battery": "40h", "sensors": "Heart Rate, SpO2, BIA", "gps": true, "water_resistance": "50m", "os": "Wear OS 4"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Samsung",
+    "model": "Galaxy Watch FE",
+    "price": 14999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"display": "1.2\" AMOLED", "battery": "30h", "sensors": "Heart Rate, SpO2", "gps": true, "water_resistance": "50m", "os": "Wear OS"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Google",
+    "model": "Pixel Watch 2",
+    "price": 29999,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"display": "1.2\" AMOLED", "battery": "24h", "sensors": "Heart Rate, SpO2, ECG, cEDA", "gps": true, "water_resistance": "50m", "os": "Wear OS 4"},
+    "image_url": "https://logo.clearbit.com/google.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Noise",
+    "model": "ColorFit Pro 5",
+    "price": 3999,
+    "rating": 4.0,
+    "ecosystem": "Universal",
+    "specs": {"display": "1.85\" AMOLED", "battery": "7 days", "sensors": "Heart Rate, SpO2", "gps": false, "water_resistance": "IP68"},
+    "image_url": "https://logo.clearbit.com/gonoise.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Fire-Boltt",
+    "model": "Phoenix Ultra",
+    "price": 2499,
+    "rating": 3.9,
+    "ecosystem": "Universal",
+    "specs": {"display": "1.39\" AMOLED", "battery": "7 days", "sensors": "Heart Rate, SpO2", "gps": true, "water_resistance": "IP67"},
+    "image_url": "https://logo.clearbit.com/fireboltt.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Amazfit",
+    "model": "GTR 4",
+    "price": 12999,
+    "rating": 4.3,
+    "ecosystem": "Universal",
+    "specs": {"display": "1.43\" AMOLED", "battery": "14 days", "sensors": "Heart Rate, SpO2", "gps": true, "water_resistance": "50m"},
+    "image_url": "https://logo.clearbit.com/amazfit.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "OnePlus",
+    "model": "Watch 2",
+    "price": 21999,
+    "rating": 4.2,
+    "ecosystem": "Android",
+    "specs": {"display": "1.43\" AMOLED", "battery": "100h", "sensors": "Heart Rate, SpO2", "gps": true, "water_resistance": "50m", "os": "Wear OS 4"},
+    "image_url": "https://logo.clearbit.com/oneplus.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "boAt",
+    "model": "Wave Sigma 3",
+    "price": 1499,
+    "rating": 3.8,
+    "ecosystem": "Universal",
+    "specs": {"display": "1.96\" HD", "battery": "7 days", "sensors": "Heart Rate, SpO2", "gps": false, "water_resistance": "IP67"},
+    "image_url": "https://logo.clearbit.com/boat-lifestyle.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Noise",
+    "model": "NoiseFit Halo",
+    "price": 1999,
+    "rating": 3.9,
+    "ecosystem": "Universal",
+    "specs": {"display": "1.43\" AMOLED", "battery": "7 days", "sensors": "Heart Rate, SpO2", "gps": false, "water_resistance": "IP68"},
+    "image_url": "https://logo.clearbit.com/gonoise.com"
+  },
+  {
+    "category": "Smartwatch",
+    "brand": "Titan",
+    "model": "Smart Pro",
+    "price": 5999,
+    "rating": 4.1,
+    "ecosystem": "Universal",
+    "specs": {"display": "1.32\" AMOLED", "battery": "5 days", "sensors": "Heart Rate, SpO2", "gps": true, "water_resistance": "IP68"},
+    "image_url": "https://logo.clearbit.com/titan.co.in"
+  },
+
+  {
+    "category": "Accessories",
+    "brand": "Logitech",
+    "model": "MK270 Wireless Keyboard Mouse Combo",
+    "price": 1595,
+    "rating": 4.2,
+    "ecosystem": "Universal",
+    "specs": {"type": "Keyboard + Mouse Combo", "connectivity": "2.4GHz Wireless", "battery": "36 months KB / 12 months mouse"},
+    "image_url": "https://logo.clearbit.com/logitech.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Logitech",
+    "model": "MX Master 3S Mouse",
+    "price": 8995,
+    "rating": 4.7,
+    "ecosystem": "Universal",
+    "specs": {"type": "Mouse", "connectivity": "Bluetooth + USB-C", "sensor": "8000 DPI", "battery": "70 days rechargeable"},
+    "image_url": "https://logo.clearbit.com/logitech.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Apple",
+    "model": "Magic Keyboard",
+    "price": 9900,
+    "rating": 4.5,
+    "ecosystem": "Apple",
+    "specs": {"type": "Keyboard", "connectivity": "Bluetooth, Lightning", "battery": "1 month rechargeable"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Apple",
+    "model": "Magic Mouse",
+    "price": 7500,
+    "rating": 4.1,
+    "ecosystem": "Apple",
+    "specs": {"type": "Mouse", "connectivity": "Bluetooth, Lightning", "battery": "1 month rechargeable"},
+    "image_url": "https://logo.clearbit.com/apple.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "AmazonBasics",
+    "model": "15.6\" Laptop Bag",
+    "price": 799,
+    "rating": 4.1,
+    "ecosystem": "Universal",
+    "specs": {"type": "Laptop Bag", "size": "15.6 inch", "material": "Polyester", "compartments": 3},
+    "image_url": "https://logo.clearbit.com/amazon.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Safari",
+    "model": "Laptop Backpack 30L",
+    "price": 1299,
+    "rating": 4.0,
+    "ecosystem": "Universal",
+    "specs": {"type": "Laptop Backpack", "size": "15.6 inch", "capacity": "30L", "material": "Polyester"},
+    "image_url": "https://logo.clearbit.com/safariindia.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Anker",
+    "model": "PowerCore 20000mAh",
+    "price": 2499,
+    "rating": 4.5,
+    "ecosystem": "Universal",
+    "specs": {"type": "Power Bank", "capacity": "20000mAh", "ports": "2x USB-A, 1x USB-C", "output": "18W"},
+    "image_url": "https://logo.clearbit.com/anker.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Belkin",
+    "model": "3-in-1 MagSafe Charger",
+    "price": 10999,
+    "rating": 4.6,
+    "ecosystem": "Apple",
+    "specs": {"type": "Wireless Charger", "output": "15W MagSafe", "devices": "iPhone + Apple Watch + AirPods"},
+    "image_url": "https://logo.clearbit.com/belkin.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Portronics",
+    "model": "Adapto 20W Charger",
+    "price": 599,
+    "rating": 4.0,
+    "ecosystem": "Universal",
+    "specs": {"type": "Wall Charger", "output": "20W USB-C PD", "cable": "USB-C to USB-C included"},
+    "image_url": "https://logo.clearbit.com/portronics.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Spigen",
+    "model": "Laptop Stand LS100",
+    "price": 1999,
+    "rating": 4.4,
+    "ecosystem": "Universal",
+    "specs": {"type": "Laptop Stand", "material": "Aluminum", "adjustable": true, "max_size": "17 inch"},
+    "image_url": "https://logo.clearbit.com/spigen.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Zebronics",
+    "model": "Zeb-Transformer Pro Mousepad",
+    "price": 499,
+    "rating": 3.8,
+    "ecosystem": "Universal",
+    "specs": {"type": "Mouse Pad", "size": "XL (800x300mm)", "material": "Micro-weave cloth", "rgb": true},
+    "image_url": "https://logo.clearbit.com/zebronics.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Samsung",
+    "model": "25W USB-C Fast Charger",
+    "price": 1099,
+    "rating": 4.3,
+    "ecosystem": "Android",
+    "specs": {"type": "Wall Charger", "output": "25W USB-C PD", "cable": "USB-C to USB-C included"},
+    "image_url": "https://logo.clearbit.com/samsung.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Cosmic Byte",
+    "model": "Equinox Kronos RGB Mousepad",
+    "price": 999,
+    "rating": 4.0,
+    "ecosystem": "Universal",
+    "specs": {"type": "Mouse Pad", "size": "XL (800x300mm)", "material": "Micro-texture", "rgb": true},
+    "image_url": "https://logo.clearbit.com/cosmicbyte.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "Targus",
+    "model": "CityLite Pro 15.6\" Backpack",
+    "price": 3999,
+    "rating": 4.3,
+    "ecosystem": "Universal",
+    "specs": {"type": "Laptop Backpack", "size": "15.6 inch", "material": "Nylon", "waterproof": true},
+    "image_url": "https://logo.clearbit.com/targus.com"
+  },
+  {
+    "category": "Accessories",
+    "brand": "HP",
+    "model": "X500 Wired Mouse",
+    "price": 399,
+    "rating": 3.9,
+    "ecosystem": "Universal",
+    "specs": {"type": "Mouse", "connectivity": "USB Wired", "sensor": "1000 DPI", "buttons": 3},
+    "image_url": "https://logo.clearbit.com/hp.com"
+  }
+]

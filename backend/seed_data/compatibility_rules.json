@@ -1,0 +1,17 @@
+[
+  {"ecosystem_a": "Apple", "ecosystem_b": "Apple", "score": 100},
+  {"ecosystem_a": "Android", "ecosystem_b": "Android", "score": 95},
+  {"ecosystem_a": "Windows", "ecosystem_b": "Windows", "score": 95},
+  {"ecosystem_a": "Linux", "ecosystem_b": "Linux", "score": 90},
+  {"ecosystem_a": "Universal", "ecosystem_b": "Universal", "score": 90},
+  {"ecosystem_a": "Windows", "ecosystem_b": "Android", "score": 85},
+  {"ecosystem_a": "Apple", "ecosystem_b": "Universal", "score": 95},
+  {"ecosystem_a": "Android", "ecosystem_b": "Universal", "score": 95},
+  {"ecosystem_a": "Windows", "ecosystem_b": "Universal", "score": 95},
+  {"ecosystem_a": "Linux", "ecosystem_b": "Universal", "score": 90},
+  {"ecosystem_a": "Android", "ecosystem_b": "Linux", "score": 75},
+  {"ecosystem_a": "Windows", "ecosystem_b": "Linux", "score": 70},
+  {"ecosystem_a": "Apple", "ecosystem_b": "Windows", "score": 45},
+  {"ecosystem_a": "Apple", "ecosystem_b": "Android", "score": 40},
+  {"ecosystem_a": "Apple", "ecosystem_b": "Linux", "score": 35}
+]
