@@ -1,12 +1,13 @@
 // Navbar component — persistent top navigation
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { HiOutlineBookmark, HiOutlineScale, HiOutlineViewGrid, HiOutlineLogout, HiOutlineUser } from 'react-icons/hi';
+import { HiOutlineBookmark, HiOutlineViewGrid, HiOutlineLogout, HiOutlineUser } from 'react-icons/hi';
 import './Navbar.css';
 
 export default function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleLogout = () => {
     logout();
@@ -23,14 +24,11 @@ export default function Navbar() {
 
         {isAuthenticated && (
           <div className="navbar-links">
-            <Link to="/dashboard" className="nav-link">
+            <Link to="/dashboard" className={`nav-link ${pathname === '/dashboard' ? 'active' : ''}`}>
               <HiOutlineViewGrid /> Dashboard
             </Link>
-            <Link to="/saved" className="nav-link">
+            <Link to="/saved" className={`nav-link ${pathname === '/saved' ? 'active' : ''}`}>
               <HiOutlineBookmark /> Saved
-            </Link>
-            <Link to="/compare" className="nav-link">
-              <HiOutlineScale /> Compare
             </Link>
           </div>
         )}

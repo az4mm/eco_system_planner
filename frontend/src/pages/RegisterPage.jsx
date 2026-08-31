@@ -11,20 +11,45 @@ export default function RegisterPage() {
   const [password, setPassword] = useState('');
   const [ecosystem, setEcosystem] = useState('');
   const [loading, setLoading] = useState(false);
-  const { register } = useAuth();
+  const { register, login } = useAuth();
   const navigate = useNavigate();
+
+  const validateForm = () => {
+    if (name.trim().length < 2) {
+      toast.error('Name must be at least 2 characters');
+      return false;
+    }
+    if (!/^[a-zA-Z\s]+$/.test(name.trim())) {
+      toast.error('Name can only contain letters and spaces');
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error('Please enter a valid email address');
+      return false;
+    }
+    if (password.length < 6) {
+      toast.error('Password must be at least 6 characters');
+      return false;
+    }
+    if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+      toast.error('Password must contain both letters and numbers');
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password.length < 6) {
-      toast.error('Password must be at least 6 characters');
-      return;
-    }
+    if (!validateForm()) return;
+
     setLoading(true);
     try {
-      await register(name, email, password, ecosystem || null);
-      toast.success('Account created! Please login.');
-      navigate('/login');
+      await register(name.trim(), email.trim(), password, ecosystem || null);
+      // Auto-login after successful registration
+      await login(email.trim(), password);
+      toast.success('Account created — welcome!');
+      navigate('/dashboard');
     } catch (err) {
       toast.error(err.response?.data?.detail || 'Registration failed');
     } finally {
@@ -42,7 +67,7 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
             <label className="form-label">Full Name</label>
-            <input type="text" className="form-input" placeholder="Rahul Sharma" value={name} onChange={(e) => setName(e.target.value)} required />
+            <input type="text" className="form-input" placeholder="Rahul Sharma" value={name} onChange={(e) => setName(e.target.value)} required minLength={2} />
           </div>
           <div className="form-group">
             <label className="form-label">Email</label>
@@ -50,7 +75,8 @@ export default function RegisterPage() {
           </div>
           <div className="form-group">
             <label className="form-label">Password</label>
-            <input type="password" className="form-input" placeholder="At least 6 characters" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
+            <input type="password" className="form-input" placeholder="Letters + numbers, 6+ chars" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
+            <span className="form-hint">Must contain both letters and numbers</span>
           </div>
           <div className="form-group">
             <label className="form-label">Preferred Ecosystem (optional)</label>

@@ -1,45 +1,9 @@
-// Compare Page — side-by-side bundle comparison
-import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { bundleService } from '../services/bundleService';
-import toast from 'react-hot-toast';
-import './ComparePage.css';
+// CompareModal — side-by-side comparison as an overlay dialog
+import { HiOutlineX } from 'react-icons/hi';
+import './CompareModal.css';
 
-export default function ComparePage() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [bundles, setBundles] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  // Support both: direct bundle data OR bundle IDs
-  const passedBundles = location.state?.bundles || [];
-  const bundleIds = location.state?.bundleIds || [];
-
-  useEffect(() => {
-    if (passedBundles.length >= 2) {
-      // Bundles passed directly — no API call needed
-      setBundles(passedBundles);
-      setLoading(false);
-    } else if (bundleIds.length >= 2) {
-      // Only IDs passed — fetch from API
-      loadBundles();
-    } else {
-      toast.error('Select at least 2 bundles from Dashboard');
-      navigate('/dashboard');
-    }
-  }, []);
-
-  const loadBundles = async () => {
-    try {
-      const data = await bundleService.compareBundles(bundleIds);
-      setBundles(data);
-    } catch (err) {
-      toast.error('Failed to load bundles');
-      navigate('/dashboard');
-    } finally {
-      setLoading(false);
-    }
-  };
+export default function CompareModal({ bundles, onClose }) {
+  if (!bundles || bundles.length < 2) return null;
 
   const formatPrice = (price) =>
     new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(price);
@@ -50,32 +14,30 @@ export default function ComparePage() {
     return 'score-low';
   };
 
-  if (loading) {
-    return (
-      <div className="page"><div className="container">
-        <div className="loading-state">Loading comparison...</div>
-      </div></div>
-    );
-  }
-
   const categories = ['Laptop', 'Smartphone', 'Earbuds', 'Smartwatch', 'Accessories'];
 
+  // Find the best score to highlight the winner
+  const bestOverall = Math.max(...bundles.map((b) => b.overall_score));
+
   return (
-    <div className="page">
-      <div className="container">
-        <div className="page-header animate-in">
-          <h1>⚖️ Compare Bundles</h1>
-          <p>Side-by-side comparison of your selected bundles</p>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content glass-card animate-in" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <h2>⚖️ Compare Bundles</h2>
+          <button className="modal-close" onClick={onClose}>
+            <HiOutlineX />
+          </button>
         </div>
 
-        <div className="compare-table-wrapper animate-in" style={{ animationDelay: '0.1s' }}>
+        <div className="modal-body">
           <table className="compare-table">
             <thead>
               <tr>
                 <th className="compare-label-col">Metric</th>
                 {bundles.map((b, i) => (
-                  <th key={b.id || i} className="compare-bundle-col">
-                    Bundle {String.fromCharCode(65 + i)}
+                  <th key={b.id || i} className={`compare-bundle-col ${b.overall_score === bestOverall ? 'winner-col' : ''}`}>
+                    <span className="bundle-label">Bundle {String.fromCharCode(65 + i)}</span>
+                    {b.overall_score === bestOverall && <span className="winner-badge">👑 Best</span>}
                   </th>
                 ))}
               </tr>
@@ -84,7 +46,9 @@ export default function ComparePage() {
               <tr>
                 <td className="row-label">Overall Score</td>
                 {bundles.map((b, i) => (
-                  <td key={b.id || i}><span className={`score-badge ${getScoreClass(b.overall_score)}`}>{b.overall_score.toFixed(1)}</span></td>
+                  <td key={b.id || i}>
+                    <span className={`score-badge ${getScoreClass(b.overall_score)}`}>{b.overall_score.toFixed(1)}</span>
+                  </td>
                 ))}
               </tr>
               <tr>
@@ -105,7 +69,9 @@ export default function ComparePage() {
                   <td key={b.id || i} className="price-tag">{formatPrice(b.total_price)}</td>
                 ))}
               </tr>
-              <tr className="divider-row"><td colSpan={bundles.length + 1}>Products</td></tr>
+              <tr className="divider-row">
+                <td colSpan={bundles.length + 1}>Products</td>
+              </tr>
               {categories.map((cat) => (
                 <tr key={cat}>
                   <td className="row-label">{cat}</td>
@@ -126,10 +92,6 @@ export default function ComparePage() {
               ))}
             </tbody>
           </table>
-        </div>
-
-        <div className="compare-actions">
-          <button onClick={() => navigate('/dashboard')} className="btn btn-secondary">← Back to Dashboard</button>
         </div>
       </div>
     </div>

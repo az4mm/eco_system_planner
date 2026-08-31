@@ -56,9 +56,16 @@
   text-decoration: none;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
   color: var(--text-primary);
   background: var(--bg-glass);
+}
+
+.nav-link.active {
+  color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.1);
+  border-bottom: 2px solid var(--accent-blue);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .navbar-right {

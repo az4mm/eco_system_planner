@@ -2,7 +2,7 @@
 import { HiOutlineStar, HiOutlineBookmark, HiOutlineScale, HiOutlineDownload } from 'react-icons/hi';
 import './BundleCard.css';
 
-export default function BundleCard({ bundle, rank, onSave, onCompare, onExport }) {
+export default function BundleCard({ bundle, rank, onSave, onCompare, isComparing = false }) {
   const getScoreClass = (score) => {
     if (score >= 80) return 'score-high';
     if (score >= 60) return 'score-medium';
@@ -14,7 +14,7 @@ export default function BundleCard({ bundle, rank, onSave, onCompare, onExport }
   };
 
   return (
-    <div className="bundle-card glass-card animate-in" style={{ animationDelay: `${rank * 0.1}s` }}>
+    <div className={`bundle-card glass-card animate-in ${isComparing ? 'card-comparing' : ''}`} style={{ animationDelay: `${rank * 0.1}s` }}>
       <div className="bundle-header">
         <div className="bundle-rank">
           {rank === 1 && <span className="rank-badge gold">🥇</span>}
@@ -64,8 +64,12 @@ export default function BundleCard({ bundle, rank, onSave, onCompare, onExport }
         </div>
         <div className="bundle-actions">
           {onCompare && (
-            <button onClick={() => onCompare(bundle.id)} className="btn btn-sm btn-secondary" title="Compare">
-              <HiOutlineScale />
+            <button
+              onClick={() => onCompare(bundle.id)}
+              className={`btn btn-sm ${isComparing ? 'btn-compare-active' : 'btn-secondary'}`}
+              title={isComparing ? 'Remove from compare' : 'Add to compare'}
+            >
+              <HiOutlineScale /> {isComparing && '✓'}
             </button>
           )}
           {onSave && (

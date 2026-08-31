@@ -1,8 +1,8 @@
 // Dashboard Page — main recommendation interface
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { bundleService } from '../services/bundleService';
 import BundleCard from '../components/BundleCard';
+import CompareModal from '../components/CompareModal';
 import toast from 'react-hot-toast';
 import { HiOutlineLightningBolt } from 'react-icons/hi';
 import './DashboardPage.css';
@@ -13,14 +13,34 @@ const USAGE_PROFILES = ['Gaming', 'Creator', 'Office', 'Student', 'Photography',
 const ECOSYSTEM_ICONS = { Apple: '🍎', Android: '🤖', Windows: '🪟', Linux: '🐧', Mixed: '🔀' };
 const USAGE_ICONS = { Gaming: '🎮', Creator: '🎨', Office: '💼', Student: '📚', Photography: '📷', Travel: '✈️' };
 
+// Persist dashboard state so it survives navigation to Compare/Saved and back
+const STORAGE_KEY = 'dashboard_state';
+
+function loadSavedState() {
+  try {
+    const saved = sessionStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : null;
+  } catch { return null; }
+}
+
+function saveState(state) {
+  try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+}
+
 export default function DashboardPage() {
-  const [budget, setBudget] = useState(25000);
-  const [ecosystem, setEcosystem] = useState('');
-  const [usageProfile, setUsageProfile] = useState('');
-  const [bundles, setBundles] = useState([]);
+  const saved = loadSavedState();
+  const [budget, setBudget] = useState(saved?.budget || 25000);
+  const [ecosystem, setEcosystem] = useState(saved?.ecosystem || '');
+  const [usageProfile, setUsageProfile] = useState(saved?.usageProfile || '');
+  const [bundles, setBundles] = useState(saved?.bundles || []);
   const [loading, setLoading] = useState(false);
-  const [compareList, setCompareList] = useState([]);
-  const navigate = useNavigate();
+  const [compareList, setCompareList] = useState(saved?.compareList || []);
+  const [showCompare, setShowCompare] = useState(false);
+
+  // Persist state whenever it changes
+  useEffect(() => {
+    saveState({ budget, ecosystem, usageProfile, bundles, compareList });
+  }, [budget, ecosystem, usageProfile, bundles, compareList]);
 
   const handleGenerate = async () => {
     if (!ecosystem) { toast.error('Please select an ecosystem'); return; }
@@ -28,6 +48,7 @@ export default function DashboardPage() {
     if (budget < 5000) { toast.error('Minimum budget is ₹5,000'); return; }
 
     setLoading(true);
+    setCompareList([]);
     try {
       const results = await bundleService.generateBundles(budget, ecosystem, usageProfile);
       setBundles(results);
@@ -58,7 +79,7 @@ export default function DashboardPage() {
 
   const goToCompare = () => {
     if (compareList.length < 2) { toast.error('Select at least 2 bundles'); return; }
-    navigate('/compare', { state: { bundleIds: compareList } });
+    setShowCompare(true);
   };
 
   const formatBudget = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
@@ -122,10 +143,17 @@ export default function DashboardPage() {
             </div>
             <div className="bundles-grid">
               {bundles.map((bundle, i) => (
-                <BundleCard key={bundle.id} bundle={bundle} rank={i + 1} onSave={handleSave} onCompare={handleCompare} />
+                <BundleCard key={bundle.id} bundle={bundle} rank={i + 1} onSave={handleSave} onCompare={handleCompare} isComparing={compareList.includes(bundle.id)} />
               ))}
             </div>
           </div>
+        )}
+
+        {showCompare && (
+          <CompareModal
+            bundles={bundles.filter((b) => compareList.includes(b.id))}
+            onClose={() => setShowCompare(false)}
+          />
         )}
       </div>
     </div>

@@ -12,15 +12,30 @@ export default function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error('Please enter a valid email address');
+      return false;
+    }
+    if (password.length < 6) {
+      toast.error('Password must be at least 6 characters');
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     setLoading(true);
     try {
-      await login(email, password);
+      await login(email.trim(), password);
       toast.success('Welcome back!');
       navigate('/dashboard');
     } catch (err) {
-      toast.error(err.response?.data?.detail || 'Login failed');
+      toast.error(err.response?.data?.detail || 'Invalid email or password');
     } finally {
       setLoading(false);
     }
@@ -40,7 +55,7 @@ export default function LoginPage() {
           </div>
           <div className="form-group">
             <label className="form-label">Password</label>
-            <input type="password" className="form-input" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <input type="password" className="form-input" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
           </div>
           <button type="submit" className="btn btn-primary btn-lg auth-btn" disabled={loading}>
             {loading ? 'Logging in...' : 'Login'}
