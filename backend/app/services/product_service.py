@@ -6,7 +6,7 @@ from app.models.product import Product
 from app.schemas.product import ProductCreate, ProductUpdate
 
 
-def get_all_products(
+def _build_product_query(
     db: Session,
     category: Optional[str] = None,
     brand: Optional[str] = None,
@@ -14,8 +14,9 @@ def get_all_products(
     min_price: Optional[float] = None,
     max_price: Optional[float] = None,
     min_rating: Optional[float] = None,
-) -> List[Product]:
-    """Get products with optional filters."""
+    search: Optional[str] = None,
+):
+    """Build a filtered query — shared between list and count."""
     query = db.query(Product).filter(Product.is_active == True)
 
     if category:
@@ -23,9 +24,7 @@ def get_all_products(
     if brand:
         query = query.filter(Product.brand.ilike(f"%{brand}%"))
     if ecosystem:
-        if ecosystem == "Mixed":
-            pass  # No filter — return all ecosystems
-        else:
+        if ecosystem != "Mixed":
             query = query.filter(
                 or_(Product.ecosystem == ecosystem, Product.ecosystem == "Universal")
             )
@@ -35,8 +34,56 @@ def get_all_products(
         query = query.filter(Product.price <= max_price)
     if min_rating is not None:
         query = query.filter(Product.rating >= min_rating)
+    if search:
+        s = f"%{search}%"
+        query = query.filter(
+            or_(Product.brand.ilike(s), Product.model.ilike(s))
+        )
+    return query
 
-    return query.order_by(Product.category, Product.price).all()
+
+def get_all_products(
+    db: Session,
+    category: Optional[str] = None,
+    brand: Optional[str] = None,
+    ecosystem: Optional[str] = None,
+    min_price: Optional[float] = None,
+    max_price: Optional[float] = None,
+    min_rating: Optional[float] = None,
+    search: Optional[str] = None,
+    sort_by: Optional[str] = "price_asc",
+    skip: int = 0,
+    limit: int = 12,
+) -> List[Product]:
+    """Get products with optional filters, sorting, and pagination."""
+    query = _build_product_query(db, category, brand, ecosystem, min_price, max_price, min_rating, search)
+
+    # Sorting
+    if sort_by == "price_desc":
+        query = query.order_by(Product.price.desc())
+    elif sort_by == "rating":
+        query = query.order_by(Product.rating.desc())
+    elif sort_by == "name":
+        query = query.order_by(Product.brand, Product.model)
+    else:  # price_asc (default)
+        query = query.order_by(Product.price.asc())
+
+    return query.offset(skip).limit(limit).all()
+
+
+def count_products(
+    db: Session,
+    category: Optional[str] = None,
+    brand: Optional[str] = None,
+    ecosystem: Optional[str] = None,
+    min_price: Optional[float] = None,
+    max_price: Optional[float] = None,
+    min_rating: Optional[float] = None,
+    search: Optional[str] = None,
+) -> int:
+    """Count total products matching filters (for pagination metadata)."""
+    query = _build_product_query(db, category, brand, ecosystem, min_price, max_price, min_rating, search)
+    return query.count()
 
 
 def get_product_by_id(db: Session, product_id: int) -> Optional[Product]:

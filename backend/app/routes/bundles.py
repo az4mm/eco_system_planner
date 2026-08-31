@@ -1,5 +1,6 @@
 # Bundle routes - /api/v1/bundles
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import Response
 from sqlalchemy.orm import Session
 from typing import List
 from app.database import get_db
@@ -112,3 +113,27 @@ def delete_saved_bundle(
     if not success:
         raise HTTPException(status_code=404, detail="Saved bundle not found")
     return {"message": "Bundle removed from saved list"}
+
+
+@router.get("/{bundle_id}/export")
+def export_bundle_pdf(
+    bundle_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Export a bundle as a downloadable PDF report."""
+    from app.services.pdf_service import generate_bundle_pdf
+
+    bundle = bundle_service.get_bundle_by_id(db, bundle_id)
+    if not bundle:
+        raise HTTPException(status_code=404, detail="Bundle not found")
+
+    pdf_bytes = generate_bundle_pdf(bundle)
+
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="TechPlanner_Bundle_{bundle_id}.pdf"'
+        },
+    )

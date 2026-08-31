@@ -9,7 +9,7 @@ from app.services import product_service
 router = APIRouter(prefix="/api/v1/products", tags=["Products"])
 
 
-@router.get("/", response_model=List[ProductResponse])
+@router.get("/")
 def list_products(
     category: Optional[str] = Query(None),
     brand: Optional[str] = Query(None),
@@ -17,12 +17,38 @@ def list_products(
     min_price: Optional[float] = Query(None),
     max_price: Optional[float] = Query(None),
     min_rating: Optional[float] = Query(None),
+    search: Optional[str] = Query(None),
+    sort_by: Optional[str] = Query("price_asc"),
+    page: int = Query(1, ge=1),
+    per_page: int = Query(12, ge=1, le=50),
     db: Session = Depends(get_db),
 ):
-    """List all products with optional filters."""
-    return product_service.get_all_products(
-        db, category, brand, ecosystem, min_price, max_price, min_rating
+    """List all products with filters, sorting, and pagination."""
+    skip = (page - 1) * per_page
+
+    products = product_service.get_all_products(
+        db, category, brand, ecosystem, min_price, max_price, min_rating,
+        search, sort_by, skip, per_page,
     )
+    total = product_service.count_products(
+        db, category, brand, ecosystem, min_price, max_price, min_rating, search,
+    )
+
+    return {
+        "products": [ProductResponse.model_validate(p) for p in products],
+        "total": total,
+        "page": page,
+        "per_page": per_page,
+        "total_pages": (total + per_page - 1) // per_page,
+    }
+
+
+@router.get("/brands")
+def get_brands(db: Session = Depends(get_db)):
+    """Get unique brands from the product database."""
+    from app.models.product import Product
+    brands = db.query(Product.brand).filter(Product.is_active == True).distinct().order_by(Product.brand).all()
+    return [b[0] for b in brands]
 
 
 @router.get("/search", response_model=List[ProductResponse])
