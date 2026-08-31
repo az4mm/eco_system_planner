@@ -1,6 +1,7 @@
 # Bundle schemas - request/response models for bundles and recommendations
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
+from datetime import datetime
 from app.schemas.product import ProductResponse
 
 
@@ -45,7 +46,7 @@ class BundleCompareResponse(BaseModel):
 class SavedBundleResponse(BaseModel):
     id: int
     bundle_id: int
-    saved_at: str
+    saved_at: Optional[datetime] = None
     bundle: BundleResponse
 
     class Config:

@@ -43,13 +43,19 @@ def generate_bundles(
     category_products: Dict[str, List[Product]] = {}
     for category in CATEGORIES:
         alloc = allocation[category]
+        # Try exact range first
         products = product_service.get_products_by_category_and_budget(
             db, category, ecosystem, alloc["min"], alloc["max"]
         )
         if not products:
-            # Fallback: expand range to find at least something
+            # Fallback 1: expand range significantly (0 to 2x the max)
             products = product_service.get_products_by_category_and_budget(
-                db, category, ecosystem, 0, alloc["max"] * 1.5
+                db, category, ecosystem, 0, alloc["max"] * 2.0
+            )
+        if not products:
+            # Fallback 2: just get the cheapest products in this category regardless of budget
+            products = product_service.get_cheapest_products_in_category(
+                db, category, ecosystem, limit=5
             )
         if products:
             # Limit candidates to top-rated ones to avoid combinatorial explosion
@@ -58,13 +64,29 @@ def generate_bundles(
 
     # Need at least laptop and smartphone to make a meaningful bundle
     if "Laptop" not in category_products or "Smartphone" not in category_products:
+        # Last resort: try to get ANY laptop and smartphone regardless of ecosystem/budget
+        for req_cat in ["Laptop", "Smartphone"]:
+            if req_cat not in category_products:
+                fallback = product_service.get_cheapest_products_in_category(
+                    db, req_cat, "Mixed", limit=5
+                )
+                if fallback:
+                    category_products[req_cat] = fallback
+
+    if "Laptop" not in category_products or "Smartphone" not in category_products:
         return []
 
     # Step 3: Generate candidate combinations
-    candidates = _generate_combinations(category_products, budget)
+    # Use the total budget * 1.15 as the ceiling to allow slight overshoot for better results
+    candidates = _generate_combinations(category_products, budget * 1.15)
 
     if not candidates:
-        return []
+        # If still no combos, try with just the cheapest item per category
+        cheap_combo = {}
+        for cat, prods in category_products.items():
+            cheapest = min(prods, key=lambda p: p.price)
+            cheap_combo[cat] = cheapest
+        candidates = [cheap_combo]
 
     # Step 4: Score each candidate
     compat_rules = load_rules(db)

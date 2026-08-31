@@ -75,6 +75,21 @@ def get_products_by_category_and_budget(
     return query.order_by(Product.rating.desc()).all()
 
 
+def get_cheapest_products_in_category(
+    db: Session, category: str, ecosystem: str, limit: int = 5
+) -> List[Product]:
+    """Get the cheapest products in a category, regardless of budget range."""
+    query = db.query(Product).filter(
+        Product.is_active == True,
+        Product.category == category,
+    )
+    if ecosystem != "Mixed":
+        query = query.filter(
+            or_(Product.ecosystem == ecosystem, Product.ecosystem == "Universal")
+        )
+    return query.order_by(Product.price.asc()).limit(limit).all()
+
+
 def search_products(db: Session, query_str: str) -> List[Product]:
     """Search products by brand or model name."""
     search = f"%{query_str}%"
