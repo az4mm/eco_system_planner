@@ -27,6 +27,8 @@ app.add_middleware(
         FRONTEND_URL,
         "http://localhost:5173",
         "http://localhost:3000",
+        "https://eco-system-planner.vercel.app",
+        "https://eco-system-planner.vercel.app/",
     ],
     allow_credentials=True,
     allow_methods=["*"],
