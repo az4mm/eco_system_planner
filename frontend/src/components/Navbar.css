@@ -275,9 +275,56 @@
   justify-content: center;
 }
 
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
 @media (max-width: 768px) {
-  .navbar-links { display: none; }
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 16px 24px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+
+  .navbar-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+
+  .nav-link.active {
+    border-bottom: none;
+    border-left: 3px solid var(--accent-blue);
+    border-radius: var(--radius-sm);
+  }
+
   .profile-name { display: none; }
+  
   .profile-dropdown {
     width: 280px;
     right: -8px;

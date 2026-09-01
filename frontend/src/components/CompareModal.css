@@ -62,6 +62,7 @@
 
 .modal-body {
   overflow-y: auto;
+  overflow-x: auto;
   padding: 0;
 }
 

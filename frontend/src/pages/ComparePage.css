@@ -78,3 +78,17 @@
   color: var(--text-secondary);
   font-size: 1.1rem;
 }
+
+@media (max-width: 768px) {
+  .compare-table th,
+  .compare-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  .compare-label-col {
+    width: 100px;
+  }
+  .compare-bundle-col {
+    font-size: 0.9rem;
+  }
+}

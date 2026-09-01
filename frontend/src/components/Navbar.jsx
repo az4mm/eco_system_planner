@@ -4,7 +4,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 import toast from 'react-hot-toast';
-import { HiOutlineBookmark, HiOutlineViewGrid, HiOutlineLogout, HiOutlineUser, HiOutlineCube, HiOutlinePencil, HiOutlineCheck, HiOutlineX, HiOutlineKey } from 'react-icons/hi';
+import { HiOutlineBookmark, HiOutlineViewGrid, HiOutlineLogout, HiOutlineUser, HiOutlineCube, HiOutlinePencil, HiOutlineCheck, HiOutlineX, HiOutlineKey, HiOutlineMenu } from 'react-icons/hi';
 import './Navbar.css';
 
 const ECOSYSTEMS = ['Apple', 'Android', 'Windows', 'Linux', 'Mixed'];
@@ -24,6 +24,9 @@ export default function Navbar() {
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [pwForm, setPwForm] = useState({ current_password: '', new_password: '', confirm_password: '' });
   const [pwSaving, setPwSaving] = useState(false);
+
+  // Mobile menu state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const dropdownRef = useRef(null);
 
@@ -134,14 +137,14 @@ export default function Navbar() {
         </Link>
 
         {isAuthenticated && (
-          <div className="navbar-links">
-            <Link to="/dashboard" className={`nav-link ${pathname === '/dashboard' ? 'active' : ''}`}>
+          <div className={`navbar-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+            <Link to="/dashboard" className={`nav-link ${pathname === '/dashboard' ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
               <HiOutlineViewGrid /> Dashboard
             </Link>
-            <Link to="/saved" className={`nav-link ${pathname === '/saved' ? 'active' : ''}`}>
+            <Link to="/saved" className={`nav-link ${pathname === '/saved' ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
               <HiOutlineBookmark /> Saved
             </Link>
-            <Link to="/products" className={`nav-link ${pathname === '/products' ? 'active' : ''}`}>
+            <Link to="/products" className={`nav-link ${pathname === '/products' ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>
               <HiOutlineCube /> Products
             </Link>
           </div>
@@ -246,6 +249,17 @@ export default function Navbar() {
               <Link to="/login" className="btn btn-sm btn-secondary">Login</Link>
               <Link to="/register" className="btn btn-sm btn-primary">Sign Up</Link>
             </div>
+          )}
+          
+          {/* Mobile Menu Toggle */}
+          {isAuthenticated && (
+            <button 
+              className="mobile-menu-toggle" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
+            </button>
           )}
         </div>
       </div>

@@ -106,4 +106,8 @@
 @media (max-width: 768px) {
   .bundles-grid { grid-template-columns: 1fr; }
   .chip { padding: 8px 14px; font-size: 0.85rem; }
+  .budget-range { flex-direction: column; align-items: stretch; gap: 12px; }
+  .budget-input { width: 100%; }
+  .generate-btn { width: 100%; min-width: 0; }
+  .dashboard-inputs { gap: 20px; }
 }
